@@ -1,0 +1,23 @@
+" Environment {
+	
+	" Basics {
+		set nocompatible	" Must be first line
+	" }
+	
+	" Setup Bundle Support {
+		filetype off
+		set rtp+=~/.vim/bundle/vundle
+		call vundle#begin()
+	" }
+
+" }
+
+" Bundles {
+" }
+
+" Vundle Settings {
+
+	call vundle#end()
+	filetype plugin indent on
+
+" }
