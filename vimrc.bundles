@@ -15,6 +15,12 @@
 " Bundles {
 " }
 
+" Use local bundles config if available {
+	if filereadable(expand("~/.vim/vimrc.bundles.local"))
+		source ~/.vim/vimrc.bundles.local
+	endif
+" }
+
 " Vundle Settings {
 
 	call vundle#end()

@@ -153,6 +153,6 @@ sync_repo       "$HOME/.vim/bundle/vundle" \
                 "master" \
                 "vundle"
 
-setup_vundle    "$APP_PATH/.vimrc.bundles"
+setup_vundle    "$APP_PATH/vimrc.bundles"
 
 msg             "\nThanks for installing $app_name."
