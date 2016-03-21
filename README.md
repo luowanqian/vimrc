@@ -41,4 +41,4 @@ echo Plugin \'scrooloose/nerdtree\' >> ~/.vim/vimrc.bundles.local
 Modify `~/.vim/vimrc.bundles.local` to remove an included plugin.
 
 To remove an included plugin, just remove the line which the bundle you want to remove. Then
-launch `vim` and run `:PluginClean`. To uninstall from command line, run `vim +PluginClean + qall`.
+launch `vim` and run `:PluginClean`. To uninstall from command line, run `vim +PluginClean +qall`.
