@@ -13,6 +13,9 @@
 " }
 
 " Bundles {
+
+	Plugin 'VundleVim/Vundle.vim'
+
 " }
 
 " Use local bundles config if available {
