@@ -123,6 +123,7 @@ setup_vundle() {
 
     vim \
         "+PluginInstall!" \
+		"+PluginClean" \
         "+qall"
 
     export SHELL="$system_shell"
@@ -145,7 +146,7 @@ sync_repo       "$APP_PATH" \
                 "$REPO_BRANCH" \
                 "$app_name"
 
-sync_repo       "$HOME/.vim/bundle/vundle" \
+sync_repo       "$HOME/.vim/bundle/Vundle.vim" \
                 "$VUNDLE_URI" \
                 "master" \
                 "vundle"
