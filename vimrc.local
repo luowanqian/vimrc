@@ -1,0 +1,114 @@
+set splitright
+
+set fileencodings=utf-8,gbk
+
+set backspace=indent,eol,start
+
+if has('gui_running')
+	set guifont=Monaco:h12
+endif
+
+set expandtab
+
+runtime ftplugin/man.vim
+
+augroup BufRead_all
+    autocmd BufRead * set number
+augroup end
+
+" Plugin Settings {
+
+" Vundle {
+
+let g:exclude_update_plugin_list = [ 'YouCompleteMe' ]
+
+function UpdatePlugin()
+    let l:find = 0
+    let l:bundles = vundle#scripts#bundle_names(map(copy(g:vundle#bundles), 'v:val.name_spec'))
+    for l:i in l:bundles
+        let l:find = 0
+        for l:j in g:exclude_update_plugin_list
+            if matchstr(l:i, l:j) !=# ''
+                let l:find = 1
+            endif
+        endfor
+        if l:find == 0
+            let l:temp = substitute(l:i, 'Plugin ''[a-z0-9-]*\/', 'PluginUpdate ', '')
+            execute(substitute(l:temp, '''', '', ''))
+        endif
+    endfor
+endfunction
+
+" }
+
+" Indent Guides {
+
+let g:indent_guides_guide_size = 1
+
+" }
+
+" Syntastic {
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Checkers {
+
+" vim {
+
+let g:syntastic_vim_checkers = ['vint']
+
+" }
+
+" cpp {
+
+" cpplint {
+
+"let g:syntastic_cpp_cpplint_exec = 'cpplint'
+"let g:syntastic_cpp_checkers = ['cpplint']
+
+" }
+
+" }
+
+" }
+
+" }
+
+" YouCompleteMe {
+
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_seed_identifiers_with_syntax = 1
+"let g:ycm_show_diagnostics_ui = 0
+
+nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" }
+
+" NERD Commenter {
+
+" }
+
+" Vim-Latex {
+
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+
+" }
+
+" Tagbar {
+
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_width = 50
+
+" }
+
+" }
